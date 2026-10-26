@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NODEON.site | Formulario del negocio</title>
+<style>
+:root{--ink:#172033;--muted:#667085;--line:#d9deea;--bg:#f4f6fb;--brand:#315efb;--brand2:#2448c7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:#101828;color:white;padding:24px 18px}header .wrap,main{max-width:900px;margin:auto}header h1{margin:0 0 6px;font-size:25px}header p{margin:0;color:#d0d5dd}
+main{padding:18px 12px 40px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;margin:0 0 14px;box-shadow:0 2px 8px #1018280a}
+h2{font-size:18px;margin:0 0 14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}label{font-size:14px;font-weight:650}input,textarea,select{font:inherit;border:1px solid #cbd2e1;border-radius:9px;padding:11px;background:#fff;width:100%;min-width:0}textarea{min-height:94px;resize:vertical}.hint{font-size:12px;color:var(--muted)}.checks{display:flex;flex-wrap:wrap;gap:8px}.checks label{font-weight:500;background:#f7f8fc;border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:flex;gap:7px;align-items:center}.checks input{width:auto}
+button{border:0;border-radius:10px;padding:12px 16px;font:inherit;font-weight:700;cursor:pointer}.primary{background:var(--brand);color:white}.secondary{background:#e9edff;color:#243b91}.actions{display:flex;flex-wrap:wrap;gap:10px}.status{margin-top:12px;padding:12px;border-radius:10px;background:#f2f4f7;color:#344054;display:none}.status.show{display:block}.preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:10px}.preview figure{margin:0;border:1px solid var(--line);border-radius:10px;padding:6px;overflow:hidden}.preview img{width:100%;height:100px;object-fit:cover;border-radius:6px}.preview figcaption{font-size:12px;overflow-wrap:anywhere;margin-top:5px}.req{color:#b42318}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.full{grid-column:auto}header h1{font-size:22px}.card{padding:14px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>NODEON.site</h1><p>Formulario para recopilar la información de tu negocio</p></div></header>
+<main>
+<div class="card"><p>Completa los datos y adjunta las imágenes solicitadas. Al terminar, se descargará un archivo <strong>.json</strong> que contiene tus respuestas y las imágenes. Envíalo a NODEON.site por WhatsApp como documento adjunto.</p><p class="hint">Consejo: usa imágenes claras. Para facilitar el envío, las fotografías se reducirán automáticamente. El archivo puede tardar unos segundos en generarse.</p></div>
+<form id="businessForm">
+<section class="card">
+<h2>1. Datos del negocio</h2>
+<div class="grid">
+<div class="field"><label for="businessName">Nombre del negocio <span class="req">*</span></label><input id="businessName" name="businessName" required></div>
+<div class="field"><label for="category">Rubro o actividad <span class="req">*</span></label><input id="category" name="category" required placeholder="Ej. ropa, comida, servicios"></div>
+<div class="field"><label for="owner">Nombre de contacto</label><input id="owner" name="owner"></div>
+<div class="field"><label for="phone">WhatsApp / teléfono</label><input id="phone" name="phone" inputmode="tel"></div>
+<div class="field"><label for="city">Ciudad o zona</label><input id="city" name="city" placeholder="Ej. Santa Cruz de la Sierra"></div>
+<div class="field"><label for="email">Correo electrónico</label><input id="email" name="email" type="email"></div>
+<div class="field full"><label for="description">Descripción del negocio <span class="req">*</span></label><textarea id="description" name="description" required placeholder="¿Qué ofrece tu negocio y qué lo hace especial?"></textarea></div>
+</div>
+</section>
+<section class="card">
+<h2>2. Contenido para la página</h2>
+<div class="grid">
+<div class="field full"><label for="objective">Objetivo principal de la página</label><select id="objective" name="objective"><option value="">Seleccionar…</option><option>Mostrar información y ubicación</option><option>Recibir consultas por WhatsApp</option><option>Mostrar productos o servicios</option><option>Vender por internet</option><option>Otro</option></select></div>
+<div class="field full"><label for="services">Productos o servicios principales</label><textarea id="services" name="services" placeholder="Escribe uno por línea, con precios si corresponde"></textarea></div>
+<div class="field full"><label for="advantages">¿Por qué deberían elegir tu negocio?</label><textarea id="advantages" name="advantages"></textarea></div>
+<div class="field full"><label for="sections">Secciones que deseas incluir</label><div class="checks">
+<label><input type="checkbox" name="sections" value="Inicio"> Inicio</label><label><input type="checkbox" name="sections" value="Nosotros"> Nosotros</label><label><input type="checkbox" name="sections" value="Productos"> Productos</label><label><input type="checkbox" name="sections" value="Servicios"> Servicios</label><label><input type="checkbox" name="sections" value="Galería"> Galería</label><label><input type="checkbox" name="sections" value="Testimonios"> Testimonios</label><label><input type="checkbox" name="sections" value="Contacto"> Contacto</label>
+</div></div>
+</div>
+</section>
+<section class="card">
+<h2>3. Contacto y horarios</h2>
+<div class="grid">
+<div class="field"><label for="address">Dirección</label><input id="address" name="address"></div>
+<div class="field"><label for="hours">Días y horarios de atención</label><input id="hours" name="hours" placeholder="Ej. Lun–Sáb, 9:00–18:00"></div>
+<div class="field"><label for="instagram">Instagram</label><input id="instagram" name="instagram" placeholder="Enlace o usuario"></div>
+<div class="field"><label for="facebook">Facebook</label><input id="facebook" name="facebook" placeholder="Enlace a la página"></div>
+<div class="field"><label for="tiktok">TikTok</label><input id="tiktok" name="tiktok" placeholder="Enlace o usuario"></div>
+<div class="field"><label for="maps">Google Maps</label><input id="maps" name="maps" placeholder="Enlace de ubicación"></div>
+</div>
+</section>
+<section class="card">
+<h2>4. Preferencias de diseño</h2>
+<div class="grid">
+<div class="field"><label for="style">Estilo visual</label><select id="style" name="style"><option value="">Seleccionar…</option><option>Moderno y minimalista</option><option>Elegante</option><option>Colorido y llamativo</option><option>Natural / artesanal</option><option>Corporativo</option><option>No estoy seguro</option></select></div>
+<div class="field"><label for="colors">Colores preferidos</label><input id="colors" name="colors" placeholder="Ej. negro y dorado"></div>
+<div class="field full"><label for="references">Páginas de referencia o comentarios</label><textarea id="references" name="references"></textarea></div>
+</div>
+</section>
+<section class="card">
+<h2>5. Logotipo y fotografías</h2>
+<div class="field">
+<label for="images">Adjuntar imágenes</label>
+<input id="images" name="images" type="file" accept="image/*" multiple>
+<div class="hint">Puedes seleccionar varias imágenes. Se intentarán comprimir a un máximo aproximado de 1400 px por lado. Recomendación de prueba: hasta 10 imágenes.</div>
+<div id="preview" class="preview"></div>
+</div>
+</section>
+<section class="card">
+<div class="field"><label><input type="checkbox" id="consent" required style="width:auto"> Confirmo que tengo autorización para compartir estos datos e imágenes para preparar mi sitio web. <span class="req">*</span></label></div>
+<div class="actions" style="margin-top:16px"><button class="primary" id="submitBtn" type="submit">Generar y compartir archivo</button><button class="secondary" type="reset">Borrar formulario</button></div>
+<div id="status" class="status" role="status"></div>
+</section>
+</form>
+<footer class="hint" style="text-align:center">NODEON.site · Formulario de recopilación de contenido</footer>
+</main>
+<script>
+const fileInput=document.getElementById('images');
+const preview=document.getElementById('preview');
+const statusBox=document.getElementById('status');
+const submitBtn=document.getElementById('submitBtn');
+let chosenFiles=[];
+fileInput.addEventListener('change',()=>{
+  chosenFiles=Array.from(fileInput.files||[]);
+  preview.innerHTML='';
+  chosenFiles.forEach(file=>{
+    const figure=document.createElement('figure');
+    const img=document.createElement('img'); img.alt=file.name;
+    const caption=document.createElement('figcaption'); caption.textContent=file.name+' ('+Math.round(file.size/1024)+' KB)';
+    figure.append(img,caption); preview.append(figure);
+    const reader=new FileReader(); reader.onload=()=>img.src=reader.result; reader.readAsDataURL(file);
+  });
+});
+function value(name){const el=document.querySelector('[name="'+name+'"]');return el?el.value.trim():''}
+function readFileAsDataURL(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})}
+async function compressImage(file){
+  if(!file.type.startsWith('image/')) throw new Error('El archivo '+file.name+' no es una imagen.');
+  const dataUrl=await readFileAsDataURL(file);
+  const img=new Image();
+  await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=()=>reject(new Error('No se pudo leer '+file.name));img.src=dataUrl});
+  const maxSide=1400, scale=Math.min(1,maxSide/Math.max(img.width,img.height));
+  const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));
+  const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);
+  const isPng=file.type==='image/png' && !file.name.toLowerCase().match(/\.(jpe?g|webp)$/);
+  const mime=isPng?'image/png':'image/jpeg';
+  const compressed=canvas.toDataURL(mime,isPng?undefined:0.78);
+  const base64=compressed.split(',')[1];
+  return {name:file.name,type:mime,width:canvas.width,height:canvas.height,data:base64,encoding:'base64'};
+}
+function safeName(s){return (s||'negocio').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9_-]+/g,'_').replace(/^_+|_+$/g,'').slice(0,50)||'negocio'}
+function downloadJson(blob,filename){
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),30000);
+}
+
+document.getElementById('businessForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ if(!e.currentTarget.reportValidity())return;
+ if(chosenFiles.length>20){alert('Para esta prueba, adjunta como máximo 20 imágenes.');return}
+ submitBtn.disabled=true;submitBtn.textContent='Preparando archivo…';
+ statusBox.className='status show';statusBox.textContent='Comprimiendo imágenes y preparando el archivo. No cierres esta página.';
+ try{
+  const data={
+   format:'NODEON_CLIENT_INTAKE',version:1,createdAt:new Date().toISOString(),
+   business:{
+    businessName:value('businessName'),category:value('category'),owner:value('owner'),phone:value('phone'),city:value('city'),email:value('email'),
+    description:value('description'),objective:value('objective'),services:value('services'),advantages:value('advantages'),
+    sections:Array.from(document.querySelectorAll('input[name="sections"]:checked')).map(x=>x.value),
+    address:value('address'),hours:value('hours'),instagram:value('instagram'),facebook:value('facebook'),tiktok:value('tiktok'),maps:value('maps'),
+    style:value('style'),colors:value('colors'),references:value('references')
+   },
+   consentConfirmed:document.getElementById('consent').checked,
+   images:[]
+  };
+  for(let i=0;i<chosenFiles.length;i++){
+    statusBox.textContent='Comprimiendo imagen '+(i+1)+' de '+chosenFiles.length+'…';
+    data.images.push(await compressImage(chosenFiles[i]));
+  }
+  const json=JSON.stringify(data);
+  const blob=new Blob([json],{type:'application/json'});
+  const filename='NODEON_'+safeName(data.business.businessName)+'.json';
+  const sizeMB=(blob.size/1024/1024).toFixed(2);
+  const file=new File([blob],filename,{type:'application/json'});
+  if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
+    statusBox.textContent='Archivo listo ('+sizeMB+' MB). Abriendo el menú para compartir…';
+    try{
+      await navigator.share({files:[file],title:'Formulario NODEON.site',text:'Información del negocio para NODEON.site'});
+      statusBox.textContent='Se abrió el menú para compartir. Si todavía no lo hiciste, selecciona WhatsApp y el chat de NODEON.site.';
+    }catch(shareError){
+      if(shareError && shareError.name==='AbortError'){
+        statusBox.textContent='Compartir fue cancelado. Puedes volver a pulsar el botón para intentarlo otra vez.';
+      }else{
+        downloadJson(blob,filename);
+        statusBox.textContent='No se pudo abrir el menú para compartir. Descargamos el JSON como alternativa; adjúntalo en WhatsApp como documento.';
+      }
+    }
+  }else{
+    downloadJson(blob,filename);
+    statusBox.textContent='Este navegador no permite compartir archivos directamente. Se descargó el JSON ('+sizeMB+' MB); adjúntalo en WhatsApp como documento. Prueba Chrome en Android para intentar compartir directamente.';
+  }
+ }catch(err){statusBox.textContent='No se pudo generar el archivo: '+(err.message||err);statusBox.style.background='#fef3f2';statusBox.style.color='#b42318'}
+ finally{submitBtn.disabled=false;submitBtn.textContent='Generar y compartir archivo'}
+});
+document.getElementById('businessForm').addEventListener('reset',()=>{setTimeout(()=>{chosenFiles=[];preview.innerHTML='';statusBox.className='status';statusBox.textContent=''},0)});
+</script>
+</body>
+</html>
